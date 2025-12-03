@@ -52,16 +52,20 @@
                                         </td>
 
                                         <td class="text-center">
-                                            <a href="{{ route('transactions.edit', $transaction->id) }}" class="btn btn-warning" title="Edit" style="padding: 5px;opacity: 0.8; margin-top:12px;">
-                                                <i class="fas fa-pencil-alt "></i>
+                                            <a href="{{ route('transactions.edit', $user->id) }}"
+                                                class="mx-3"
+                                                data-bs-toggle="tooltip"
+                                                data-bs-original-title="Edit user">
+                                                <i class="fas fa-user-edit text-secondary"></i>
                                             </a>
 
-                                            <form action="{{ route('transactions.destroy', $transaction->id) }}" class="d-inline" method="POST"
-                                                onsubmit="return confirm('Delete this expense?');">
+                                            <form action="{{ route('transactions.destroy', $user->id) }}" method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-danger" title="Delete" style="padding: 5px;opacity: 0.8; margin-top:12px;">
-                                                    <i class="fas fa-trash"></i>
+                                                <button type="submit"
+                                                    class="btn btn-link p-0 m-0"
+                                                    onclick="return confirm('Delete this user?')">
+                                                    <i class="cursor-pointer fas fa-trash text-secondary"></i>
                                                 </button>
                                             </form>
                                         </td>

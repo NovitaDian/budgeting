@@ -42,25 +42,24 @@
                       <span class="badge bg-gradient-danger">Expense</span>
                       @endif
                     </td>
-
-
-
                     <td class="text-center">
-                      @if($category->name !== 'GOAL')
-                      <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning" title="Edit" style="padding: 5px; opacity: 0.8; margin-top:12px;">
-                        <i class="fas fa-pencil-alt"></i>
+                      <a href="{{ route('categories.edit', $user->id) }}"
+                        class="mx-3"
+                        data-bs-toggle="tooltip"
+                        data-bs-original-title="Edit user">
+                        <i class="fas fa-user-edit text-secondary"></i>
                       </a>
-                      <form action="{{ route('categories.destroy', $category->id) }}" class="d-inline" method="POST"
-                        onsubmit="return confirm('Delete this category?');">
+
+                      <form action="{{ route('categories.destroy', $user->id) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger" title="Delete" style="padding: 5px; opacity: 0.8; margin-top:12px;">
-                          <i class="fas fa-trash"></i>
+                        <button type="submit"
+                          class="btn btn-link p-0 m-0"
+                          onclick="return confirm('Delete this user?')">
+                          <i class="cursor-pointer fas fa-trash text-secondary"></i>
                         </button>
                       </form>
-                      @endif
                     </td>
-
                   </tr>
                   @empty
                   <tr>

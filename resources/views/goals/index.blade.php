@@ -63,20 +63,27 @@
                                 <span class="badge bg-success">Ongoing</span>
                                 @endif
                             </td>
-
                             <td class="text-center">
-                                <a href="{{ route('goals.edit', $goal->id) }}" class="btn btn-warning" title="Edit" style="padding: 5px;opacity: 0.8; margin-top:12px;">
-                                    <i class="fas fa-pencil-alt "></i>
+                                <a href="{{ route('goals.edit', $user->id) }}"
+                                    class="mx-3"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-original-title="Edit user">
+                                    <i class="fas fa-user-edit text-secondary"></i>
                                 </a>
-                                <a href="{{ route('goals.show', $goal->id) }}" class="btn btn-info" title="Details" style="padding: 5px;opacity: 0.8; margin-top:12px;">
-                                    <i class="fas fa-eye"></i>
+                                <a href="{{ route('goals.show', $user->id) }}"
+                                    class="mx-3"
+                                    data-bs-toggle="tooltip"
+                                    data-bs-original-title="Edit user">
+                                    <i class="fas fa-eye text-secondary"></i>
                                 </a>
-                                <form action="{{ route('goals.destroy', $goal->id) }}" class="d-inline" method="POST"
-                                    onsubmit="return confirm('Delete this goal?');">
+
+                                <form action="{{ route('goals.destroy', $user->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger" title="Delete" style="padding: 5px;opacity: 0.8; margin-top:12px;">
-                                        <i class="fas fa-trash"></i>
+                                    <button type="submit"
+                                        class="btn btn-link p-0 m-0"
+                                        onclick="return confirm('Delete this user?')">
+                                        <i class="cursor-pointer fas fa-trash text-secondary"></i>
                                     </button>
                                 </form>
                             </td>
